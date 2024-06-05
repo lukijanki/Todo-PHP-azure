@@ -2,7 +2,7 @@
 // Dane do połączenia z bazą danych
 $servername = "todolist-lab12-server.mysql.database.azure.com";
 $username = "wacztqewss";
-$password = "9SUC$XDzNb6WI8CU";
+$password = '9SUC$XDzNb6WI8CU';
 $dbname = "todolist-lab12-server";
 // Tworzenie połączenia
 $conn = new mysqli($servername, $username, $password, $dbname);
