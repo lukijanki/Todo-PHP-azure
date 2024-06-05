@@ -43,7 +43,7 @@
     }
 
     function connectdatabase() {
-        return mysqli_connect("todolist-lab12-server", "wacztqewss", "9SUC$XDzNb6WI8CU", "todo");
+        return mysqli_connect("todolist-lab12-server", "wacztqewss", "9SUC$XDzNb6WI8CU", "todolist-lab12-database");
     }
 
     function loggedin() {
