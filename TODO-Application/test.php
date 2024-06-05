@@ -11,6 +11,7 @@ if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);
 } else {
    echo "Connection works!"; }
+die;
 // Pobieranie danych z tabeli users
 $sql_users = "SELECT username, password FROM users";
 $result_users = $conn->query($sql_users);
