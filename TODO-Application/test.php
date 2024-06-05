@@ -1,4 +1,6 @@
 <?php
+echo "Hello!";
+die;
 // Dane do połączenia z bazą danych
 $servername = "todolist-lab12-server.mysql.database.azure.com";
 $username = "wacztqewss";
