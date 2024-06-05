@@ -26,7 +26,7 @@
     else if(isset($_POST['Save']))
     {
         $conn = connectdatabase();
-        $sql = "UPDATE todo.tasks SET done = 0";
+        $sql = "UPDATE tasks SET done = 0";
         $result = mysqli_query($conn, $sql); 
         mysqli_close($conn);
 
@@ -63,7 +63,7 @@
     function userexist($username) 
     {
         $conn = connectdatabase();
-        $sql = "SELECT * FROM todo.users WHERE username = '".$username."'"; 
+        $sql = "SELECT * FROM users WHERE username = '".$username."'"; 
         $result = mysqli_query($conn,$sql);
         mysqli_close($conn);
 
@@ -76,7 +76,7 @@
     function validuser($username, $password) 
     {
         $conn = connectdatabase();
-        $sql = "SELECT * FROM todo.users WHERE username = '".$username."'AND password = '".$password."'"; 
+        $sql = "SELECT * FROM users WHERE username = '".$username."'AND password = '".$password."'"; 
         $result = mysqli_query($conn,$sql);
         mysqli_close($conn);
 
@@ -96,7 +96,7 @@
 
     function updatepassword($username, $password) {
         $conn = connectdatabase();
-        $sql = "UPDATE todo.users SET password = '".$password."' WHERE username = '".$username."';";
+        $sql = "UPDATE users SET password = '".$password."' WHERE username = '".$username."';";
         $result = mysqli_query($conn, $sql);
 
         $_SESSION['error'] = "<br> &nbsp; Password Updated !! ";
@@ -105,10 +105,10 @@
 
     function deleteaccount($username) {
         $conn = connectdatabase();
-        $sql = "DELETE FROM todo.tasks WHERE username = '".$username."';";
+        $sql = "DELETE FROM tasks WHERE username = '".$username."';";
         $result = mysqli_query($conn, $sql);
 
-        $sql = "DELETE FROM todo.users WHERE username = '".$username."';";
+        $sql = "DELETE FROM users WHERE username = '".$username."';";
         $result = mysqli_query($conn, $sql);
 
         $_SESSION['error'] = "&nbsp; Account Deleted !! ";
@@ -121,7 +121,7 @@
         if(!userexist($username))
         {
             $conn = connectdatabase();
-            $sql = "INSERT INTO todo.users (username, password) VALUES ('".$username."','".$password."')";
+            $sql = "INSERT INTO users (username, password) VALUES ('".$username."','".$password."')";
             $result = mysqli_query($conn, $sql);
 
             $_SESSION["username"] = $username;
@@ -195,7 +195,7 @@
     function addTodoItem($username, $todo_text) 
     {
         $conn = connectdatabase();
-        $sql = "INSERT INTO todo.tasks(username, task, done) VALUES ('".$username."','".$todo_text."',0);";
+        $sql = "INSERT INTO tasks(username, task, done) VALUES ('".$username."','".$todo_text."',0);";
         $result = mysqli_query($conn, $sql);
         mysqli_close($conn);
     }
@@ -203,7 +203,7 @@
     function deleteTodoItem($username, $todo_id) 
     {
         $conn = connectdatabase();
-        $sql = "DELETE FROM todo.tasks WHERE taskid = ".$todo_id." and username = '".$username."';";
+        $sql = "DELETE FROM tasks WHERE taskid = ".$todo_id." and username = '".$username."';";
         $result = mysqli_query($conn, $sql);
         mysqli_close($conn);
     }
@@ -211,7 +211,7 @@
     function updateDone($todo_id) 
     {
         $conn = connectdatabase();
-        $sql = "UPDATE todo.tasks SET done = '1' WHERE (taskid = '".$todo_id."');";
+        $sql = "UPDATE tasks SET done = '1' WHERE (taskid = '".$todo_id."');";
         $result = mysqli_query($conn, $sql);   
         mysqli_close($conn);
     }
