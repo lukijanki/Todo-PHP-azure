@@ -1,6 +1,4 @@
 <?php
-echo "Hello!";
-die;
 // Dane do połączenia z bazą danych
 $servername = "todolist-lab12-server.mysql.database.azure.com";
 $username = "wacztqewss";
@@ -11,7 +9,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Sprawdzanie połączenia
 if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);
-}
+} else {
+   echo "Connection works!"; }
 // Pobieranie danych z tabeli users
 $sql_users = "SELECT username, password FROM users";
 $result_users = $conn->query($sql_users);
